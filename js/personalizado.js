@@ -19,8 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       $('#visualizar #id').text(info.event.id);
       $('#visualizar #id').val(info.event.id);
+      $('#visualizar #solicitante').text(info.event.extendedProps.solicitante);
+      $('#visualizar #solicitante').val(info.event.extendedProps.solicitante);
       $('#visualizar #title').text(info.event.title);
       $('#visualizar #title').val(info.event.title);
+      $('#visualizar #conexao').text(info.event.extendedProps.conexao);
+      $('#visualizar #conexao').val(info.event.extendedProps.conexao);
       $('#visualizar #start').text(info.event.start.toLocaleString('pt-br'));
       $('#visualizar #start').val(info.event.start.toLocaleString('pt-br'));
       $('#visualizar #end').text(info.event.end.toLocaleString('pt-br'));
@@ -31,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     selectable: true,
     select: function (info) {
-      //alert('Início do Evento ' + info.start.toLocaleString());
+      // alert('Início do Evento ' + info.start.toLocaleString());
       $('#cadastrar #start').val(info.start.toLocaleString('pt-br'));
       $('#cadastrar #end').val(info.end.toLocaleString('pt-br'));
 
@@ -109,8 +113,8 @@ $(document).ready(function () {
     $('.visevent').slideToggle();
   });
 
-  $('.meet').hide();
-  $('.scopia').hide();
+  $('#respConexao #meet').hide();
+  $('#respConexao #scopia').hide();
 
   // Editar
   $('#editevent').on('submit', function (event) {
@@ -133,21 +137,43 @@ $(document).ready(function () {
     });
   });
 
-  $('#conexao').change(function () {
-    var I = $('#conexao').val();
-    if (I == 'Meet') {
-      $('.meet').slideDown('fast');
-      $('.scopia').slideUp();
+  $('#conexao1').change(function () {
+    var resp = $(this).val();
+    if (resp == 'Meet') {
+      $('#respConexao #meet').slideDown('fast');
+      $('#respConexao #scopia').slideUp();
 
-    } else if (I == 'Scopia') {
-      $('.scopia').slideDown('fast');
-      $('.meet').slideUp();
+    } else if (resp == 'Scopia') {
+      $('#respConexao #scopia').slideDown('fast');
+      $('#respConexao #meet').slideUp();
 
-    } else if (I == '') {
-      $('.scopia').slideUp();
-      $('.meet').slideUp();
+    } else if (resp == '') {
+      $('#respConexao #scopia').slideUp();
+      $('#respConexao #meet').slideUp();
     }
-
   });
 
+  // $('#conexao').change(function () {
+  //   var I = $('#conexao').val();
+  //   if (I == 'Meet') {
+  //     $('.meet').slideDown('fast');
+  //     $('.scopia').slideUp();
+
+  //   } else if (I == 'Scopia') {
+  //     $('.scopia').slideDown('fast');
+  //     $('.meet').slideUp();
+
+  //   } else if (I == '') {
+  //     $('.scopia').slideUp();
+  //     $('.meet').slideUp();
+  //   }
+
+  // });
+
 });
+
+// function resConexao(selectObject) {
+//   var i = selectObject.value;
+
+//   console.log(i);
+// }

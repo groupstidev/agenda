@@ -47,8 +47,14 @@
                         <dt class="col-sm-3">ID do evento</dt>
                         <dd class="col-sm-9" id="id"></dd>
 
+                        <dt class="col-sm-3">Solicitante</dt>
+                        <dd class="col-sm-9" id="solicitante"></dd>        
+
                         <dt class="col-sm-3">Título do evento</dt>
                         <dd class="col-sm-9" id="title"></dd>
+
+                        <dt class="col-sm-3">Conexão</dt>
+                        <dd class="col-sm-9" id="conexao"></dd>
 
                         <dt class="col-sm-3">Início do evento</dt>
                         <dd class="col-sm-9" id="start"></dd>
@@ -79,6 +85,18 @@
                                 <input type="text" name="title" class="form-control" id="title" placeholder="Título do evento" required="required">
                             </div>
                         </div>
+                 
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Conexão</label>
+                            <div class="col-sm-10">
+                              <select name="conexao" class="form-control" id="conexao" required="required" >
+                                    <option value="">Selecione</option>			
+                                    <option value="Meet">Meet</option>
+                                    <option value="Scopia">Scopia</option>
+                                </select>
+                            </div>
+                        </div>  
+
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Color</label>
                             <div class="col-sm-10">
@@ -153,40 +171,43 @@
                      
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Conexão</label>
+
                         <div class="col-sm-10">
-                            <select name="conexao" class="form-control" id="conexao" required="required">
+                            <!-- <select name="conexao" class="form-control" id="conexao" required="required" onChange="resConexao(this)"> -->
+                            <select name="conexao" class="form-control" id="conexao1" required="required">
                                 <option value="">Selecione</option>			
                                 <option value="Meet">Meet</option>
                                 <option value="Scopia">Scopia</option>
                             </select>
                         </div>
                     </div>
-
-                    <div class="meet">
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Link da sala</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="link" class="form-control" id="link" placeholder="Link da sala">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scopia">
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Gate Keeper</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="gatekeeper" class="form-control" id="gatekeeper" placeholder="Gate Keeper">
+                    <div id="respConexao">
+                        <div id="meet" id="meet">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Link da sala</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="link" class="form-control" id="link" placeholder="Link da sala">
+                                </div>
                             </div>
                         </div>
 
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Sala</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="sala" class="form-control" id="sala" placeholder="Sala">
+                        <div id="scopia" id="scopia">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Gate Keeper</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="gatekeeper" class="form-control" id="gatekeeper" placeholder="Gate Keeper">
+                                </div>
                             </div>
-                        </div>
-                    </div> 
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Sala</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="sala" class="form-control" id="sala" placeholder="Sala">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>    
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Color</label>
