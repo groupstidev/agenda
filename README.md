@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-    Sistema de controle de serviços.
+    Sistema de controle .
 </h3>
 
 <h4 align="center">
@@ -22,6 +22,8 @@
   - [APACHE]
   - [BOOTSTRAP]
   - [JavaScript]
+  - [FULLCALENDAR]
+  - [PHPMAILER]
 - [Autor](#-autor)
 - [Licença](#user-content--licença)
 <!--te-->
@@ -34,39 +36,21 @@ Controle de serviços para a seção de Tecnologia da informação
 
 ## ⚙️ Funcionalidades
 
-- [x] O estabelecimento cadastra:
-  - [x] Clientes
-    - Nome
-    - Graduação
-    - Nome de guerra
-    - CPF
-    - Email
-    - Telefone
-  - [x] Graduaçao
-    - Graduação
-    - Sigla
-  - [x] Organização
-    - Nome
-    - Sigla
-  - [x] Categoria de produtos
-    - Nome categoria
-    - Sigla
-  - [x] Produtos
-    - Nome do produto
-    - ponto de corte
-  - [x] Entrada de produto
-    - Quantidade
-    - Preço de compra
-    - Preço de venda
-    - Fornecedor
-  - [x] Fornecedor
-    - Nome
-    - Telefone
-    - E-mail
-- [x] Os clientes tem acesso ao aplicativo móvel, onde podem:
-
-  - [x] pode fazer pedido
-  - [x] verificar as suas compras
+- [x] Cadastrar
+  - [x] Eventos
+    - Solicitante
+    - Título
+    - Conexão
+      - [x] Meet
+        - Link da sala
+      - [x] Scopia
+        - Gatekeeper
+        - Sala
+    - Color
+    - Início (Data/Hora)
+    - Final (Data/Hora)
+- [x] Excluir
+- [x] Listar
 
 ---
 
@@ -79,6 +63,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **APACHE**
 - **BOOTSTRAP**
 - **JavaScript**
+- **FULLCALENDAR**
+- **PHPMAILER**
 
 ---
 

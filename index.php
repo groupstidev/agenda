@@ -56,13 +56,25 @@
                         <dt class="col-sm-3">Conexão</dt>
                         <dd class="col-sm-9" id="conexao"></dd>
 
+                        <dt class="col-sm-3">Gatekeep</dt>
+                        <dd class="col-sm-9" id="gatekeeper"></dd>
+
+                        <dt class="col-sm-3">Link</dt>
+                        <dd class="col-sm-9" id="link"></dd>
+
+                        <dt class="col-sm-3">Sala</dt>
+                        <dd class="col-sm-9" id="sala"></dd>
+                        
                         <dt class="col-sm-3">Início do evento</dt>
                         <dd class="col-sm-9" id="start"></dd>
 
                         <dt class="col-sm-3">Fim do evento</dt>
                         <dd class="col-sm-9" id="end"></dd>
                     </dl>
-                    <button class="btn btn-warning btn-canc-vis">Editar</button>
+                   <!--  <button class="btn btn-warning btn-canc-vis">Editar</button>-->
+                   
+                    <a href="" id="apagar_evento" class="btn btn-danger" data-confirm="Tem certeza que deseja excluir o evento ?">Apagar</a>
+                    
                 </div>
                 <div class="formedit">
                     <!-- Formulario Edit -->
@@ -193,9 +205,9 @@
 
                         <div id="scopia" id="scopia">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Gate Keeper</label>
+                                <label class="col-sm-2 col-form-label">Gatekeeper</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="gatekeeper" class="form-control" id="gatekeeper" placeholder="Gate Keeper">
+                                    <input type="text" name="gatekeeper" class="form-control" id="gatekeeper" placeholder="Gatekeeper">
                                 </div>
                             </div>
 
@@ -246,6 +258,33 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="aviso" tabindex="-1" role="dialog" aria-labelledby="aviso" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+               <!-- -->
+                <h5 class="modal-title" id="exampleModalLabel" ><img src="./img/logo_cep.png" height="50" class="card-img-center"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            
+            <h3 style="text-align:center;">Videoconferência</h3>
+            </br>
+            </br>
+                <h5>A STI não tem equipamento de videoconferência como: câmera, microfone, notebook, etc. Fica a cargo do solicitante providenciar os equipamentos.</h5>
+                </br>
+                <h5>Para a utilização do equipamento Scopia, deverá ser cautelado com antecedência com a Seção de Alunos (Cel Santa Rosa).</h5> 
+
+
             </div>
         </div>
     </div>

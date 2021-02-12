@@ -1,0 +1,12 @@
+{
+    "name": "stifabio/agenda",
+    "description": "Sistema de agendamento de videoconferencia",
+    "authors": [{
+        "name": "Sgt Fabio",
+        "email": "tignofil@gmail.com"
+    }],
+    "require": {
+        "phpmailer/phpmailer": "~5.2",
+        "fullcalendar/fullcalendar": "4.1.0"
+    }
+}

@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
+  $('#aviso').modal('show');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     locale: 'pt-br',
     plugins: ['interaction', 'dayGrid'],
     timeZone: 'local',
-    //defaultDate: '2019-04-12',
     editable: true,
     eventLimit: true, // allow "more" link when too many events
     events: 'list_eventos.php',
@@ -15,6 +15,27 @@ document.addEventListener('DOMContentLoaded', function () {
       };
     },
     eventClick: function (info) {
+
+      $('a[data-confirm]').click(function () {
+
+        if (!$('#confirm-delete').length) {
+          $('#visualizar').remove();
+          $('body').append('<div class = "modal fade" id = "confirm-delete" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true" > <div class = "modal-dialog" role = "document" > <div class = "modal-content"> <div class = "modal-header" ><h5 class = "modal-title" id = "exampleModalLabel" > Excluir Evento </h5> <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close" > <span aria-hidden = "true" > &times; </span> </button> </div> <div class = "modal-body">Tem certeza que deseja excluir o evento ? </div> <div class = "modal-footer"><a type = "button" class = "btn btn-secondary" data-dismiss = "modal" id="cancel">Cancelar </a> <a class = "btn btn-danger text-white" id ="dataConfirmOk" >Apagar</a > </div> </div> </div> </div>');
+        };
+
+        $('#cancel').click(function () {
+          location.reload();
+        });
+
+        $('#dataConfirmOk').attr("href", "proc_apagar_evento.php?id=" + info.event.id);
+
+        $('#confirm-delete').modal({
+          show: true
+        });
+
+        return false;
+      });
+
       info.jsEvent.preventDefault(); // don't let the browser navigate
 
       $('#visualizar #id').text(info.event.id);
@@ -25,6 +46,14 @@ document.addEventListener('DOMContentLoaded', function () {
       $('#visualizar #title').val(info.event.title);
       $('#visualizar #conexao').text(info.event.extendedProps.conexao);
       $('#visualizar #conexao').val(info.event.extendedProps.conexao);
+
+      $('#visualizar #gatekeeper').text(info.event.extendedProps.gatekeeper);
+      $('#visualizar #gatekeeper').val(info.event.extendedProps.gatekeeper);
+      $('#visualizar #link').text(info.event.extendedProps.link);
+      $('#visualizar #link').val(info.event.extendedProps.link);
+      $('#visualizar #sala').text(info.event.extendedProps.sala);
+      $('#visualizar #sala').val(info.event.extendedProps.sala);
+
       $('#visualizar #start').text(info.event.start.toLocaleString('pt-br'));
       $('#visualizar #start').val(info.event.start.toLocaleString('pt-br'));
       $('#visualizar #end').text(info.event.end.toLocaleString('pt-br'));
@@ -35,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     selectable: true,
     select: function (info) {
-      // alert('Início do Evento ' + info.start.toLocaleString());
       $('#cadastrar #start').val(info.start.toLocaleString('pt-br'));
       $('#cadastrar #end').val(info.end.toLocaleString('pt-br'));
 
@@ -137,6 +165,28 @@ $(document).ready(function () {
     });
   });
 
+
+  // Excluir
+  $('#delevent').on('submit', function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: 'POST',
+      url: 'del_event.php',
+      data: new FormData(this),
+      contentType: false,
+      processData: false,
+      success: function (retorna) {
+        if (retorna['sit']) {
+          //$('#msg-cad').html(retorna['msg']);
+          location.reload();
+        } else {
+          $('#msg-edit').html(retorna['msg']);
+        }
+      },
+    });
+  });
+
   $('#conexao1').change(function () {
     var resp = $(this).val();
     if (resp == 'Meet') {
@@ -152,28 +202,4 @@ $(document).ready(function () {
       $('#respConexao #meet').slideUp();
     }
   });
-
-  // $('#conexao').change(function () {
-  //   var I = $('#conexao').val();
-  //   if (I == 'Meet') {
-  //     $('.meet').slideDown('fast');
-  //     $('.scopia').slideUp();
-
-  //   } else if (I == 'Scopia') {
-  //     $('.scopia').slideDown('fast');
-  //     $('.meet').slideUp();
-
-  //   } else if (I == '') {
-  //     $('.scopia').slideUp();
-  //     $('.meet').slideUp();
-  //   }
-
-  // });
-
 });
-
-// function resConexao(selectObject) {
-//   var i = selectObject.value;
-
-//   console.log(i);
-// }
